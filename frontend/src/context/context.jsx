@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.post("http://localhost:3000/api/auth", {
+      const response = await axios.post("https://termfolio-s914.onrender.com/api/auth", {
         email,
         password,
       });

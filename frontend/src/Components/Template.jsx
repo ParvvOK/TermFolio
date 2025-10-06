@@ -20,7 +20,7 @@ export const Template = () => {
     const fetchPortfolio = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:3000/data/portfolio", {
+        const res = await axios.get("https://termfolio-s914.onrender.com/data/portfolio", {
           headers: { token },
         });
         setPortfolio(res.data.portfolio);
@@ -47,7 +47,7 @@ export const Template = () => {
     if (!portfolio) return alert("Portfolio not loaded yet!");
     try {
       const response = await axios.post(
-        "http://localhost:3000/export/full",
+        "https://termfolio-s914.onrender.com/export/full",
         { portfolio },
         { responseType: "blob" }
       );
