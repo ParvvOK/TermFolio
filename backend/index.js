@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const authRoutes = require("./routes/auth");
-const dataRoutes = require("./routes/data");
-const exportFull = require("./ssr/exportFull");
+const authRoutes = require("./src/routes/auth.js");
+const dataRoutes = require("./src/routes/auth.js");
+const exportFull = require("./src/ssr/exportFull.js");
 const port = 3000;
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "http://localhost:5173",
-  })
+  }),
 );
 
 mongoose.connect(MONGO_URI, {
@@ -24,7 +24,7 @@ mongoose.connect(MONGO_URI, {
 
 mongoose.connection.on("connected", () => console.log("MongoDB connected"));
 mongoose.connection.on("error", (err) =>
-  console.error("MongoDB connection error:", err)
+  console.error("MongoDB connection error:", err),
 );
 
 app.use("/api", authRoutes);
